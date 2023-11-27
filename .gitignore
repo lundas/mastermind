@@ -1,0 +1,8 @@
+# environment
+.env
+
+# node
+node_modules
+
+# db
+*.db
