@@ -16,13 +16,8 @@ function initializeGame(req, res) {
       rnd: 'new',
     }
   })
-    .then((result) => {
-      // add result data to db
-      // send 200 reponse with rowid
-      console.log('initGame result: ', result.data)
-      createGame(result.data);
-      res.status(200).json({ gameId: null })
-    })
+    .then((result) => createGame(result.data))
+    .then((db) => res.status(200).json({ gameId: db.lastID }))
     .catch((err) => {
       console.error('initGame err: ', err)
       res.sendStatus(500);
