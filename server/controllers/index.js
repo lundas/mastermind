@@ -1,6 +1,6 @@
 // todo: imports
 const axios = require('axios');
-const { createGame, getAnswer } = require('../models')
+const { createGame, getAnswer, incrementGuessCount } = require('../models')
 
 function initializeGame(req, res) {
   // make call to random.org
@@ -28,48 +28,46 @@ function makeGuess(req, res) {
   console.log('makeGuess req: ', req.body);
   getAnswer(req.body.gameId)
     .then((result) => {
-      console.log('getAnswer result: ', result)
       const guessEval = evaluateGuess(result.answer, req.body.guess)
-      console.log('guessEval: ', guessEval);
+      incrementGuessCount(req.body.gameId);
+      res.status(201).json({
+        gameId: req.body.gameId,
+        guess: req.body.guess,
+        ...guessEval
+      })
     })
-    .catch((err) => console.error(err))
-  res.sendStatus(200);
-  // get answer with game id found in req
-  //  invoke model with get method
-  // check answer against guess found in req
-  //  utilize helper function to evaluate guess
-  // increment guess count in db for game id
-  // send response with obj with guess, numCorrect, locCorrect
+    .catch((err) => {
+      console.error('makeGuess error: ', err);
+      res.sendStatus(500);
+    })
 }
 
 function evaluateGuess(answer, guess) {
   let nums = 0;
   let locs = 0;
-  const answerObj = {};
+  let idx = -1;
+  let val;
 
-  answer = answer.split('\n');
-  answer.pop(); // remove empty string at end of array
+  const q = answer.split('\n');
+  q.pop(); // remove empty string at end of array
 
-  answer.forEach((n, i) => answerObj[n] = i);
+  while (q.length) {
+    val = q.shift();
+    idx++;
 
-  for (let i = 0; i < guess.length; i++) {
-    if (answerObj[guess[i]] !== undefined) {
-      console.log('trigger check = true');
-      nums++;
-    }
-    if (answerObj[guess[i]] === i) {
-      locs++;
+    for (let i = 0; i < guess.length; i++) {
+      if (guess[i] === val) {
+        nums++
+        if (i === idx) {
+          locs++
+        }
+        guess[i] = -1;
+        break;
+      }
     }
   }
 
-  return { guess, nums, locs };
-
-  // convert answer to object -> nums as keys, indices as values
-  // define vars nums, locs
-  // for each value in guess
-  //  1. check if key exists -> if yes, nums++
-  //  2. if key exists, check index value -> if equal, locs++
-  // return obj { guess, nums, locs }
+  return { nums, locs };
 }
 
 module.exports = { initializeGame, makeGuess }
