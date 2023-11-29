@@ -5,10 +5,9 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  initializeGame();
-  res.status(200).send('Game Initialized')
-})
+app.use(express.json())
+
+app.get('/', initializeGame)
 
 app.post('/', (req, res) => {
   //TODO

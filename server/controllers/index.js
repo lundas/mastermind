@@ -1,27 +1,32 @@
 // todo: imports
 const axios = require('axios');
+const { createGame } = require('../models')
 
-function initializeGame(
-  num = 4, min = 0, max = 7, col = 1, base = 10, format = 'plain', rnd = 'new'
-) {
+function initializeGame(req, res) {
   // make call to random.org
   const baseUrl = 'https://www.random.org/integers/'
   axios.get(baseUrl, {
     params: {
-      num: num,
-      min: min,
-      max: max,
-      col: col,
-      base: base,
-      format: format,
-      rnd: rnd,
+      num: 4,
+      min: 0,
+      max: 7,
+      col: 1,
+      base: 10,
+      format: 'plain',
+      rnd: 'new',
     }
   })
-    .then((result) => console.log('initGame result: ', result.data))
-    .catch((err) => console.error('initGame err: ', err));
-  // insert line into db with response from random.org
-  // invoke model to insert
-  // return
+    .then((result) => {
+      // add result data to db
+      // send 200 reponse with rowid
+      console.log('initGame result: ', result.data)
+      createGame(result.data);
+      res.status(200).json({ gameId: null })
+    })
+    .catch((err) => {
+      console.error('initGame err: ', err)
+      res.sendStatus(500);
+    });
 }
 
 module.exports = { initializeGame }
