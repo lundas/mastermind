@@ -12,7 +12,7 @@ function getAnswer(id) {
 
 function incrementGuessCount(id) {
   const q = `UPDATE games SET num_guesses = num_guesses + 1 where id = ?`
-  return db.then((db) => db.run(q, [id]));
+  return db.then((db) => db.run(q, [id]))
 }
 
 //TODO

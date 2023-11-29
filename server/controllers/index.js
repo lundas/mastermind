@@ -28,9 +28,9 @@ function makeGuess(req, res) {
   console.log('makeGuess req: ', req.body);
   getAnswer(req.body.gameId)
     .then((result) => {
-      const guessEval = evaluateGuess(result.answer, req.body.guess)
       incrementGuessCount(req.body.gameId);
-      res.status(201).json({
+      const guessEval = evaluateGuess(result.answer, req.body.guess)
+      res.status(200).json({
         gameId: req.body.gameId,
         guess: req.body.guess,
         ...guessEval
