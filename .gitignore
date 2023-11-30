@@ -1,8 +1,11 @@
 # environment
 .env
 
-# node
-node_modules
+# Dependency Directories
+node_modules/
+
+# Compiled Dirs
+dist/
 
 # db
 *.db
