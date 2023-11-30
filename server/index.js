@@ -9,9 +9,9 @@ const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.json());
 
-app.get('/', initializeGame);
+app.get('/api', initializeGame);
 
-app.post('/', makeGuess);
+app.post('/api', makeGuess);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
