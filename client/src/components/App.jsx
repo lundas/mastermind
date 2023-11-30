@@ -1,10 +1,15 @@
 import React from 'react';
+import GuessInput from './GuessInput';
+import GuessHistoryList from './GuessHistoryList'
+import GuessCounter from './GuessCounter'
 
 export default function App() {
   return (
     <>
-      <h1>Hello, World!</h1>
-      <h2>Tip: Check your console</h2>
+      <h1>MasterMind</h1>
+      <GuessInput />
+      <GuessHistoryList />
+      <GuessCounter />
     </>
   )
 }
