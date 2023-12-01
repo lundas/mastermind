@@ -51,6 +51,8 @@ function evaluateGuess(answer, guess) {
   const q = answer.split('\n');
   q.pop(); // remove empty string at end of array
 
+  guess = guess.split('') //split guess string into array
+
   while (q.length) {
     val = q.shift();
     idx++;
