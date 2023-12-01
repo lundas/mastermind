@@ -16,6 +16,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'client/dist'),
     filename: 'bundle.js',
+    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
