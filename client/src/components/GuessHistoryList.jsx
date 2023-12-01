@@ -8,7 +8,7 @@ export default function GuessHistoryList({ guessList }) {
       <table>
         <thead>
           <tr>
-            <th colspan="2">Remaining Guesses: {10 - guessList.length}</th>
+            <th colSpan="2">Remaining Guesses: {10 - guessList.length}</th>
           </tr>
           <tr>
            <th>Guess</th>
@@ -23,6 +23,7 @@ export default function GuessHistoryList({ guessList }) {
           }
         </tbody>
       </table>
+      <button type="button" onClick={(e) => console.log('End Game Clicked')}>End Game</button>
     </div>
   )
 }
