@@ -7,6 +7,8 @@ export default function GuessHistoryItem({ guess }) {
 
   if (guess.nums === 0) {
     feedback = 'All incorrect'
+  } else if (guess.nums === guess.guess.length && guess.locs === guess.guess.length) {
+    feedback = 'You Win!'
   } else {
     feedback = `
       ${guess.nums} correct ${nString} and ${guess.locs} correct ${lString}
