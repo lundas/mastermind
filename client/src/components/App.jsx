@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import GuessInput from './GuessInput';
 import GuessHistoryList from './GuessHistoryList'
-import GuessCounter from './GuessCounter'
 
 export default function App() {
   let [gameStarted, setGameStarted] = useState(false);
@@ -29,7 +28,6 @@ export default function App() {
             setGuessList={setGuessList}
           />
           <GuessHistoryList guessList={guessList} />
-          <GuessCounter guessCount={guessList.length} />
         </>
       ) : (
         <>
