@@ -25,7 +25,7 @@ function initializeGame(req, res) {
 }
 
 function makeGuess(req, res) {
-  console.log('makeGuess req: ', req.body);
+  // console.log('makeGuess req: ', req.body);
   getAnswer(req.body.gameId)
     .then((result) => {
       incrementGuessCount(req.body.gameId);
