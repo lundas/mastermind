@@ -7,7 +7,7 @@ export default function GuessHistoryItem({ guess }) {
 
   if (guess.numbers === 0) {
     feedback = 'All incorrect'
-  } else if (guess.numbers === guess.guess.length && guess.locations === guess.guess.length) {
+  } else if (guess.locations === guess.guess.length) {
     feedback = 'All correct. You Win!'
   } else {
     feedback = `

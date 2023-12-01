@@ -20,6 +20,13 @@ export default function GuessHistoryList({ guessList, setGameStarted }) {
             guessList.map((guess, i, arr) => (
               <GuessHistoryItem key={guess.guess+i} guess={guess} />
             ))
+
+          }
+          {
+            guessList.length >= 10 &&
+            <tr>
+              <td colSpan="2">You've run out of guesses. Click End Game to try again.</td>
+            </tr>
           }
         </tbody>
       </table>
