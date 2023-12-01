@@ -31,13 +31,18 @@ export default function App() {
         </>
       ) : (
         <>
-          <button type="button" onClick={(e) => {
-            e.preventDefault();
-            setGameStarted(true);
-            startGame()
-              .then((result) => {setGameId(result.data.gameId)})
-              .catch((err) => console.error('startGame error: ', err));
-          }}>Start Game</button>
+          <form>
+            <input name="username" placeholder="username"></input>
+            <button type="button" onClick={(e) => {
+              e.preventDefault();
+              let username = document.querySelector('input').value || 'anon';
+              console.log('username: ', username);
+              setGameStarted(true);
+              startGame()
+                .then((result) => {setGameId(result.data.gameId)})
+                .catch((err) => console.error('startGame error: ', err));
+            }}>Start Game</button>
+          </form>
         </>
       )
     }
