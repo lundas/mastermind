@@ -43,33 +43,34 @@ function makeGuess(req, res) {
 }
 
 function evaluateGuess(answer, guess) {
-  let nums = 0;
-  let locs = 0;
-  let idx = -1;
-  let val;
+  let numbers = 0;
+  let locations = 0;
+  let q = [];
 
-  const q = answer.split('\n');
-  q.pop(); // remove empty string at end of array
+  answer = answer.split('\n');
+  answer.pop() // remove empty str created by split
 
-  guess = guess.split('') //split guess string into array
+  guess = guess.split('');
 
-  while (q.length) {
-    val = q.shift();
-    idx++;
-
-    for (let i = 0; i < guess.length; i++) {
-      if (guess[i] === val) {
-        nums++
-        if (i === idx) {
-          locs++
-        }
-        guess[i] = -1;
-        break;
-      }
+  for (let i = 0; i < answer.length; i++) {
+    if (answer[i] === guess[i]) {
+      locations++
+      answer[i] = -1;
+    } else {
+      q.push(guess[i]);
     }
   }
 
-  return { nums, locs };
+  while (q.length) {
+    let val = q.shift();
+    if (answer.some((num) => num === val)) {
+      numbers++
+    }
+  }
+
+  numbers += locations;
+
+  return { numbers, locations };
 }
 
 module.exports = { initializeGame, makeGuess }
