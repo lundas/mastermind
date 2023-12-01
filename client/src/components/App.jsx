@@ -27,7 +27,7 @@ export default function App() {
             guessList={guessList}
             setGuessList={setGuessList}
           />
-          <GuessHistoryList guessList={guessList} />
+          <GuessHistoryList guessList={guessList} setGameStarted={setGameStarted} />
         </>
       ) : (
         <>
