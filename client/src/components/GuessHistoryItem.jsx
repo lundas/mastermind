@@ -1,17 +1,17 @@
 import React from 'react';
 
 export default function GuessHistoryItem({ guess }) {
-  let lString = guess.locs === 1 ? 'location' : 'locations';
-  let nString = guess.nums === 1 ? 'number' : 'numbers';
+  let lString = guess.locations === 1 ? 'location' : 'locations';
+  let nString = guess.numbers === 1 ? 'number' : 'numbers';
   let feedback
 
-  if (guess.nums === 0) {
+  if (guess.numbers === 0) {
     feedback = 'All incorrect'
-  } else if (guess.nums === guess.guess.length && guess.locs === guess.guess.length) {
+  } else if (guess.numbers === guess.guess.length && guess.locations === guess.guess.length) {
     feedback = 'All correct. You Win!'
   } else {
     feedback = `
-      ${guess.nums} correct ${nString} and ${guess.locs} correct ${lString}
+      ${guess.numbers} correct ${nString} and ${guess.locations} correct ${lString}
     `
   }
 
