@@ -1,7 +1,7 @@
 import React from 'react';
 import GuessHistoryItem from './GuessHistoryItem';
 
-export default function GuessHistoryList() {
+export default function GuessHistoryList({ guessList }) {
   return(
     <div id="guess-history-container">
       <h2>Guess History</h2>
@@ -13,7 +13,11 @@ export default function GuessHistoryList() {
           </tr>
         </thead>
         <tbody>
-          <GuessHistoryItem />
+          {
+            guessList.map((guess, i) => (
+              <GuessHistoryItem key={guess.guess+i} guess={guess} />
+            ))
+          }
         </tbody>
       </table>
     </div>
