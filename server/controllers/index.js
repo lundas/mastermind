@@ -49,22 +49,24 @@ function evaluateGuess(answer, guess) {
 
   answer = answer.split('\n');
   answer.pop() // remove empty str created by split
+  let answerRefArr = new Array(8); // needs to reflect max number value + 1
 
   guess = guess.split('');
 
   for (let i = 0; i < answer.length; i++) {
     if (answer[i] === guess[i]) {
       locations++
-      answer[i] = -1;
     } else {
       q.push(guess[i]);
+      answerRefArr[answer[i]] = answerRefArr[answer[i]] ? answerRefArr[answer[i]] += 1 : 1;
     }
   }
 
   while (q.length) {
     let val = q.shift();
-    if (answer.some((num) => num === val)) {
-      numbers++
+    if (answerRefArr[val] > 0) {
+      numbers++;
+      answerRefArr[val]--;
     }
   }
 
