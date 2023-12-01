@@ -25,15 +25,18 @@ export default function GuessInput({
       <GuessSelect name={'guess2'}/>
       <GuessSelect name={'guess3'}/>
       <GuessSelect name={'guess4'}/>
-      <button type="button" onClick={(e) => {
-        e.preventDefault();
-        let selectNodes = document.querySelectorAll('select');
-        let guess = '';
-        selectNodes.forEach((s) => guess += s.value);
-        makeGuess(gameId, guess)
-          .then((result) => setGuessList([...guessList, result.data]))
-          .catch((err) => console.error('makeGuess error: ', err));
-      }}>Submit</button>
+      {
+        guessList.length < 10 &&
+        <button type="button" onClick={(e) => {
+          e.preventDefault();
+          let selectNodes = document.querySelectorAll('select');
+          let guess = '';
+          selectNodes.forEach((s) => guess += s.value);
+          makeGuess(gameId, guess)
+            .then((result) => setGuessList([...guessList, result.data]))
+            .catch((err) => console.error('makeGuess error: ', err));
+        }}>Submit</button>
+      }
     </div>
   )
 }
