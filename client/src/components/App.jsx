@@ -19,6 +19,11 @@ export default function App() {
   return (
     <>
       <h1>MasterMind</h1>
+      <button
+        type="button"
+        id="show-highscores-button"
+        onClick={(e) => console.log('High Score!')}
+      >Show High Scores</button>
       { gameStarted ? (
         <>
           <GuessInput
