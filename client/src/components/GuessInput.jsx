@@ -22,7 +22,7 @@ export default function GuessInput({
   let lastGuess = guessList[guessList.length - 1] || mockGuess;
   return(
     <div id="guess-input-container">
-      <h3>Make Your Guess</h3>
+      <h2>Make Your Guess</h2>
       <GuessSelect name={'guess1'}/>
       <GuessSelect name={'guess2'}/>
       <GuessSelect name={'guess3'}/>
