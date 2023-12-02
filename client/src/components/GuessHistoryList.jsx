@@ -29,7 +29,7 @@ export default function GuessHistoryList({ guessList, setGameStarted }) {
           }
         </tbody>
       </table>
-      <button type="button" onClick={(e) => {
+      <button type="button" id="end-game-button" onClick={(e) => {
         e.preventDefault();
         setGameStarted(false);
       }}>End Game</button>
