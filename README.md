@@ -9,3 +9,5 @@ npm run build
 npm start
 ```
 then navigate to localhost:3000 in your browser
+
+for best results, view in browser window 750x800 or larger
