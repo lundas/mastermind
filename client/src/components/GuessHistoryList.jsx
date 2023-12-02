@@ -20,7 +20,6 @@ export default function GuessHistoryList({ guessList, setGameStarted }) {
             guessList.map((guess, i, arr) => (
               <GuessHistoryItem key={guess.guess+i} guess={guess} />
             ))
-
           }
           {
             guessList.length >= 10 &&
