@@ -48,7 +48,7 @@ Contains files related to the frontend of the web application
 #### Server
 Contains files related to the backend of the web application
 - **controllers**: Contains functions invoked when a request is received and routed by the express server. These functions invoke model functions that interact with the database and then perform any logic required to transform the data received from the database before sending a response to the client.
-- **db**: Contains functions that create the SQLite3 database and games table based on the supplied schema (if it does not exist) and exports a connection to the models such that the model functions can execute queries.
+- **db**: Contains functions that create the SQLite3 database and games table based on the supplied schema (if the database and/or table do not exist) and exports a database connection to the models so that the model functions can execute queries.
 - **models**: Contains functions that interact with the database to Create, Read, Update, and Delete data.
 - **index.js**: The express server that routes requests received by the server and serves responses as well as files found in the ../client/dist directory
 - **mastermind.db**: the SQLite3 directory
