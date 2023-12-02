@@ -23,8 +23,9 @@ for best results, view in browser window size 750x800 or larger
 
 ## Gameplay
 1. Enter a username and click Start Game
-2. Use the dropdowns to make a guess
-3. You have 10 guesses to figure out the correct combination of numbers
+2. Use the dropdowns to make a guess and click submit
+3. Use the feedback provided in Guess History to update your guess
+4. You have 10 guesses to figure out the correct combination of numbers
 
 <img width="375" alt="Screenshot 2023-12-02 at 1 02 14 PM" src="https://github.com/lundas/mastermind/assets/26886397/33970320-c439-4924-871f-0f13a90cd81f">
 <img width="375" alt="Screenshot 2023-12-02 at 1 02 48 PM" src="https://github.com/lundas/mastermind/assets/26886397/9de89331-8bc9-4ee2-9ea2-2097b9e26a3a">
