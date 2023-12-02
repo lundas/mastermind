@@ -24,7 +24,6 @@ function createTable(db) {
         (
           id INTEGER PRIMARY KEY,
           answer TEXT NOT NULL,
-          guesses BLOB,
           num_guesses INTEGER,
           username TEXT
         );

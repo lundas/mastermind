@@ -57,13 +57,14 @@ select {
 
 table {
   table-layout: fixed;
-  width: 35em;
+  width: 37em;
 }
 
-tbody tr:nth-child(odd) {
+tbody {
   background-color: #EDF2F4;
   color: #2B2D42;
   opacity: 70%;
+  font-weight: 750;
 }
 
 td,
