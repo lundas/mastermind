@@ -1,10 +1,13 @@
 # Mastermind
 
-Requires node v16.19.0 or later and npm v8.19.3 or later
+Requirements:
+- node v16.19.0 or later
+- npm v8.19.3 or later
+- sqlite3 v3.39.5 or later
 
-You can learn more about node and install the latest version [here](https://nodejs.org/en)
+You can learn more about node and install the latest version [here](https://nodejs.org/en). You can find the node source code and additional information on [GitHub](https://github.com/nodejs/node)
 
-You can find the node source code and additional information on [GitHub](https://github.com/nodejs/node)
+You can learn about sqlite3 and download the latest version [here](https://www.sqlite.org/index.html)
 
 
 **To Run:** clone the repository to your machine, navigate to the cloned directory, and run the following commands
