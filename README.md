@@ -1,15 +1,11 @@
-# 🚀 Welcome to your new awesome project!
+# Mastermind
 
-This project has been created using **webpack-cli**, you can now run
+**To Run:**
+clone the repository to your machine and run the following commands
 
 ```
+npm i
 npm run build
+npm start
 ```
-
-or
-
-```
-yarn build
-```
-
-to bundle your application
+then navigate to localhost:3000 in your browser
