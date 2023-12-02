@@ -8,8 +8,8 @@ export default function App() {
   let [gameId, setGameId] = useState(null);
   let [guessList, setGuessList] = useState([]);
 
-  function startGame() {
-    return axios.get('/api');
+  function startGame(username) {
+    return axios.post('/api/init', { username });
   }
 
   function makeGuess(gameId, guess) {
@@ -45,9 +45,9 @@ export default function App() {
               }
 
               let username = document.querySelector('input').value || 'anon';
-              console.log('username: ', username);
+              // console.log('username: ', username);
 
-              startGame()
+              startGame(username)
                 .then((result) => {setGameId(result.data.gameId)})
                 .catch((err) => console.error('startGame error: ', err));
             }}>Start Game</button>

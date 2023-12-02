@@ -1,8 +1,8 @@
 const db = require('../db');
 
-function createGame(answer) {
-  const q = `INSERT INTO games (answer, guesses, num_guesses) VALUES (?, ?, ?)`;
-  return db.then((db) => db.run(q, [answer, [], 0]));
+function createGame(answer, username) {
+  const q = `INSERT INTO games (answer, username, num_guesses) VALUES (?, ?, ?)`;
+  return db.then((db) => db.run(q, [answer, username, 0]));
 }
 
 function getAnswer(id) {

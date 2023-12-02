@@ -16,8 +16,8 @@ function initializeGame(req, res) {
       rnd: 'new',
     }
   })
-    .then((result) => createGame(result.data))
-    .then((db) => res.status(200).json({ gameId: db.lastID }))
+    .then((result) => createGame(result.data, req.body.username))
+    .then((db) => res.status(201).json({ gameId: db.lastID }))
     .catch((err) => {
       console.error('initGame err: ', err)
       res.sendStatus(500);
