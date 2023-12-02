@@ -61,7 +61,7 @@ select {
 
 table {
   table-layout: fixed;
-  width: 37em;
+  width: 38em;
 }
 
 tbody {
@@ -74,4 +74,5 @@ tbody {
 td,
 th {
   padding: .25em;
+  border: 1px solid;
 }
