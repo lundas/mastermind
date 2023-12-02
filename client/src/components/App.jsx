@@ -7,6 +7,8 @@ export default function App() {
   let [gameStarted, setGameStarted] = useState(false);
   let [gameId, setGameId] = useState(null);
   let [guessList, setGuessList] = useState([]);
+  let [highScores, setHighScores] = useState([]);
+  let [showHighScores, setShowHighScores] = useState(false);
 
   function startGame(username) {
     return axios.post('/api/init', { username });
@@ -16,14 +18,25 @@ export default function App() {
     return axios.post('/api', { gameId, guess });
   }
 
+  function getHighScores() {
+    return axios.get('/api');
+  }
+
   return (
     <>
       <h1>MasterMind</h1>
       <button
         type="button"
         id="show-highscores-button"
-        onClick={(e) => console.log('High Score!')}
-      >Show High Scores</button>
+        onClick={(e) => {
+          setShowHighScores(!showHighScores);
+          if (highScores.length) {
+            setHighScores([]);
+          } else {
+            getHighScores.then((result) => console.log(results.data));
+          }
+        }}
+      >{showHighScores ? 'Hide' : 'Show'} High Scores</button>
       { gameStarted ? (
         <>
           <GuessInput
