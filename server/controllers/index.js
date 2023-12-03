@@ -15,7 +15,7 @@ function initializeGame(req, res) {
       rnd: 'new',
     }
   })
-    .then((result) => createGame(result.data, req.body.username))
+    .then((result) => createGame(result.data, req.body.username, req.body.difficulty))
     .then((db) => res.status(201).json({ gameId: db.lastID }))
     .catch((err) => {
       console.error('initGame err: ', err)
@@ -24,7 +24,7 @@ function initializeGame(req, res) {
 }
 
 function getHighScores(req, res) {
-  getHighScoreList()
+  getHighScoreList(req.body.difficulty)
     .then((result) => {
       res.status(200).json(result);
     })
