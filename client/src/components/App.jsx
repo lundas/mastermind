@@ -10,6 +10,7 @@ export default function App() {
   let [guessList, setGuessList] = useState([]);
   let [highScores, setHighScores] = useState([]);
   let [showHighScores, setShowHighScores] = useState(false);
+  let [difficulty, setDifficulty] = useState(null);
 
   function startGame(username, difficulty) {
     return axios.post('/api/init', { username, difficulty });
@@ -53,6 +54,7 @@ export default function App() {
           <GuessHistoryList
             guessList={guessList}
             setGameStarted={setGameStarted}
+            setDifficulty={setDifficulty}
           />
         </>
       ) : (
@@ -67,14 +69,15 @@ export default function App() {
             <button type="button" onClick={(e) => {
               e.preventDefault();
 
-              setGameStarted(true);
-              if (guessList.length) {
-                setGuessList([]);
-              }
-
               let username = document.querySelector('input').value || 'anon';
               let difficulty = document.querySelector('select[name="difficulty"]').value;
               console.log('difficulty: ', difficulty);
+
+              setGameStarted(true);
+              setDifficulty(difficulty);
+              if (guessList.length) {
+                setGuessList([]);
+              }
 
               startGame(username, difficulty)
                 .then((result) => {setGameId(result.data.gameId)})
