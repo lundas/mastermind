@@ -24,7 +24,6 @@ function initializeGame(req, res) {
 }
 
 function getHighScores(req, res) {
-  console.log('getHighScores req: ', req.query);
   getHighScoreList(req.query.difficulty)
     .then((result) => {
       res.status(200).json(result);

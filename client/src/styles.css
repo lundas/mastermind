@@ -40,7 +40,8 @@ button {
 }
 
 #end-game-button,
-#show-highscores-button {
+#show-highscores-button,
+select[name=difficulty] {
   color: #EDF2F4;
   background-color: #2B2D42;
   border: 2px solid #EF233C;

@@ -37,7 +37,6 @@ export default function App() {
           if (highScores.length) {
             setHighScores([]);
           } else {
-            console.log('hs diff: ', difficulty);
             getHighScores(difficulty)
               .then((result) => {
                 setHighScores(result.data);
