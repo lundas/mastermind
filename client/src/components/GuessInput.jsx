@@ -31,7 +31,7 @@ export default function GuessInput({
       {difficulty > 5 && <GuessSelect name={'guess6'}/>}
       {
         guessList.length < 10 &&
-        lastGuess.locations < 4 &&
+        lastGuess.locations < difficulty &&
         <button type="button" onClick={(e) => {
           e.preventDefault();
           let selectNodes = document.querySelectorAll('select[name^="guess"]');

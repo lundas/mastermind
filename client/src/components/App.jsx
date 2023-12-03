@@ -72,7 +72,7 @@ export default function App() {
 
               let username = document.querySelector('input').value || 'anon';
               let difficulty = document.querySelector('select[name="difficulty"]').value;
-              console.log('difficulty: ', difficulty);
+              // console.log('difficulty: ', difficulty);
 
               setGameStarted(true);
               setDifficulty(difficulty);
