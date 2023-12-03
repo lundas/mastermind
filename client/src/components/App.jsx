@@ -42,7 +42,9 @@ export default function App() {
           }
         }}
       >{showHighScores ? 'Hide' : 'Show'} High Scores</button>
-      { showHighScores && <HighScoreList highScores={highScores} /> }
+      { showHighScores &&
+        <HighScoreList highScores={highScores} difficulty={difficulty} />
+      }
       { gameStarted ? (
         <>
           <GuessInput
