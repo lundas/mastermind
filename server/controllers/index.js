@@ -6,7 +6,7 @@ function initializeGame(req, res) {
   const baseUrl = 'https://www.random.org/integers/'
   axios.get(baseUrl, {
     params: {
-      num: 4,
+      num: req.body.difficulty,
       min: 0,
       max: 7,
       col: 1,

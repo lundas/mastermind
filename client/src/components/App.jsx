@@ -11,8 +11,8 @@ export default function App() {
   let [highScores, setHighScores] = useState([]);
   let [showHighScores, setShowHighScores] = useState(false);
 
-  function startGame(username) {
-    return axios.post('/api/init', { username });
+  function startGame(username, difficulty) {
+    return axios.post('/api/init', { username, difficulty });
   }
 
   function makeGuess(gameId, guess) {
@@ -76,7 +76,7 @@ export default function App() {
               let difficulty = document.querySelector('select[name="difficulty"]').value;
               console.log('difficulty: ', difficulty);
 
-              startGame(username)
+              startGame(username, difficulty)
                 .then((result) => {setGameId(result.data.gameId)})
                 .catch((err) => console.error('startGame error: ', err));
             }}>Start Game</button>
