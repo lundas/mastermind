@@ -20,8 +20,8 @@ export default function App() {
     return axios.post('/api', { gameId, guess });
   }
 
-  function getHighScores() {
-    return axios.get('/api');
+  function getHighScores(difficulty=4) {
+    return axios.get('/api', { difficulty });
   }
 
   return (
@@ -35,7 +35,7 @@ export default function App() {
           if (highScores.length) {
             setHighScores([]);
           } else {
-            getHighScores()
+            getHighScores(difficulty)
               .then((result) => {
                 setHighScores(result.data);
               });
@@ -62,7 +62,7 @@ export default function App() {
         <>
           <form>
             <input name="username" placeholder="username"></input>
-            <select name="difficulty">
+            <select name="difficulty" onChange={(e) => setDifficulty(e.target.value)}>
               <option value="4">Easy</option>
               <option value="5">Medium</option>
               <option value="6">Hard</option>
@@ -71,11 +71,8 @@ export default function App() {
               e.preventDefault();
 
               let username = document.querySelector('input').value || 'anon';
-              let difficulty = document.querySelector('select[name="difficulty"]').value;
-              // console.log('difficulty: ', difficulty);
 
               setGameStarted(true);
-              setDifficulty(difficulty);
               if (guessList.length) {
                 setGuessList([]);
               }
