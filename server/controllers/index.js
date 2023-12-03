@@ -1,6 +1,5 @@
-// todo: imports
 const axios = require('axios');
-const { createGame, getAnswer, incrementGuessCount } = require('../models')
+const { createGame, getAnswer, incrementGuessCount, getHighScoreList } = require('../models')
 
 function initializeGame(req, res) {
   // make call to random.org
@@ -22,6 +21,20 @@ function initializeGame(req, res) {
       console.error('initGame err: ', err)
       res.sendStatus(500);
     });
+}
+
+function getHighScores(req, res) {
+  getHighScoreList()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      console.log('getHighScores error: ', err)
+      res.sendStatus(500);
+    });
+  // invoke model
+  // console.log to see result
+  // send result to client
 }
 
 function makeGuess(req, res) {
@@ -75,4 +88,4 @@ function evaluateGuess(answer, guess) {
   return { numbers, locations };
 }
 
-module.exports = { initializeGame, makeGuess }
+module.exports = { initializeGame, makeGuess, getHighScores }
