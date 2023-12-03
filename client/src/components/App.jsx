@@ -20,8 +20,10 @@ export default function App() {
     return axios.post('/api', { gameId, guess });
   }
 
-  function getHighScores(difficulty=4) {
-    return axios.get('/api', { difficulty });
+  function getHighScores(difficulty) {
+    return axios.get('/api', {
+      params: { difficulty }
+    });
   }
 
   return (
@@ -35,6 +37,7 @@ export default function App() {
           if (highScores.length) {
             setHighScores([]);
           } else {
+            console.log('hs diff: ', difficulty);
             getHighScores(difficulty)
               .then((result) => {
                 setHighScores(result.data);
@@ -64,7 +67,14 @@ export default function App() {
         <>
           <form>
             <input name="username" placeholder="username"></input>
-            <select name="difficulty" onChange={(e) => setDifficulty(e.target.value)}>
+            <select name="difficulty" onChange={(e) => {
+              e.preventDefault();
+              if (showHighScores) {
+                setShowHighScores(false);
+                setHighScores([])
+              }
+              setDifficulty(e.target.value)
+            }}>
               <option value="4">Easy</option>
               <option value="5">Medium</option>
               <option value="6">Hard</option>
