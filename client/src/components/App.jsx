@@ -10,7 +10,7 @@ export default function App() {
   let [guessList, setGuessList] = useState([]);
   let [highScores, setHighScores] = useState([]);
   let [showHighScores, setShowHighScores] = useState(false);
-  let [difficulty, setDifficulty] = useState(null);
+  let [difficulty, setDifficulty] = useState('4');
 
   function startGame(username, difficulty) {
     return axios.post('/api/init', { username, difficulty });

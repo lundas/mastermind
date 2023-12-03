@@ -32,7 +32,7 @@ export default function GuessHistoryList({ guessList, setGameStarted, setDifficu
       <button type="button" id="end-game-button" onClick={(e) => {
         e.preventDefault();
         setGameStarted(false);
-        setDifficulty(null);
+        setDifficulty('4');
       }}>End Game</button>
     </div>
   )
