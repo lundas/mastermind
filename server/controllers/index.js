@@ -1,13 +1,12 @@
-// todo: imports
 const axios = require('axios');
-const { createGame, getAnswer, incrementGuessCount } = require('../models')
+const { createGame, getAnswer, incrementGuessCount, getHighScoreList, updateWinColumn } = require('../models')
 
 function initializeGame(req, res) {
   // make call to random.org
   const baseUrl = 'https://www.random.org/integers/'
   axios.get(baseUrl, {
     params: {
-      num: 4,
+      num: req.body.difficulty,
       min: 0,
       max: 7,
       col: 1,
@@ -16,12 +15,37 @@ function initializeGame(req, res) {
       rnd: 'new',
     }
   })
-    .then((result) => createGame(result.data, req.body.username))
+    .then((result) => createGame(result.data, req.body.username, req.body.difficulty))
     .then((db) => res.status(201).json({ gameId: db.lastID }))
     .catch((err) => {
       console.error('initGame err: ', err)
       res.sendStatus(500);
     });
+}
+
+function getHighScores(req, res) {
+  getHighScoreList(req.query.difficulty)
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      console.log('getHighScores error: ', err)
+      res.sendStatus(500);
+    });
+  // invoke model
+  // console.log to see result
+  // send result to client
+}
+
+function recordWin(req, res) {
+  updateWinColumn(req.body.gameId)
+    .then((result) => {
+      res.status(201).json({ gameId: result.lastID });
+    })
+    .catch((err) => {
+      console.error('recordWin error: ', err);
+      res.sendStatus(500);
+    })
 }
 
 function makeGuess(req, res) {
@@ -75,4 +99,4 @@ function evaluateGuess(answer, guess) {
   return { numbers, locations };
 }
 
-module.exports = { initializeGame, makeGuess }
+module.exports = { initializeGame, makeGuess, getHighScores, recordWin }

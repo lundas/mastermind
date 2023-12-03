@@ -1,7 +1,7 @@
 import React from 'react';
 import GuessHistoryItem from './GuessHistoryItem';
 
-export default function GuessHistoryList({ guessList, setGameStarted }) {
+export default function GuessHistoryList({ guessList, setGameStarted, setDifficulty }) {
   return(
     <div id="guess-history-container">
       <h2>Guess History</h2>
@@ -32,6 +32,7 @@ export default function GuessHistoryList({ guessList, setGameStarted }) {
       <button type="button" id="end-game-button" onClick={(e) => {
         e.preventDefault();
         setGameStarted(false);
+        setDifficulty('4');
       }}>End Game</button>
     </div>
   )

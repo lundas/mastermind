@@ -16,7 +16,7 @@ function GuessSelect({ name }) {
 }
 
 export default function GuessInput({
-  gameId, makeGuess, guessList, setGuessList
+  gameId, makeGuess, guessList, setGuessList, difficulty
 }) {
   const mockGuess = { gameId: null, guess: null, numbers: null, locations: null };
   let lastGuess = guessList[guessList.length - 1] || mockGuess;
@@ -27,12 +27,14 @@ export default function GuessInput({
       <GuessSelect name={'guess2'}/>
       <GuessSelect name={'guess3'}/>
       <GuessSelect name={'guess4'}/>
+      {difficulty > 4 && <GuessSelect name={'guess5'}/>}
+      {difficulty > 5 && <GuessSelect name={'guess6'}/>}
       {
         guessList.length < 10 &&
-        lastGuess.locations < 4 &&
+        lastGuess.locations < difficulty &&
         <button type="button" onClick={(e) => {
           e.preventDefault();
-          let selectNodes = document.querySelectorAll('select');
+          let selectNodes = document.querySelectorAll('select[name^="guess"]');
           let guess = '';
           selectNodes.forEach((s) => guess += s.value);
           makeGuess(gameId, guess)
