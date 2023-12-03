@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { createGame, getAnswer, incrementGuessCount, getHighScoreList } = require('../models')
+const { createGame, getAnswer, incrementGuessCount, getHighScoreList, updateWinColumn } = require('../models')
 
 function initializeGame(req, res) {
   // make call to random.org
@@ -35,6 +35,17 @@ function getHighScores(req, res) {
   // invoke model
   // console.log to see result
   // send result to client
+}
+
+function recordWin(req, res) {
+  updateWinColumn(req.body.gameId)
+    .then((result) => {
+      res.status(201).json({ gameId: result.lastID });
+    })
+    .catch((err) => {
+      console.error('recordWin error: ', err);
+      res.sendStatus(500);
+    })
 }
 
 function makeGuess(req, res) {
@@ -88,4 +99,4 @@ function evaluateGuess(answer, guess) {
   return { numbers, locations };
 }
 
-module.exports = { initializeGame, makeGuess, getHighScores }
+module.exports = { initializeGame, makeGuess, getHighScores, recordWin }

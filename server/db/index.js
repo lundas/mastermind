@@ -26,7 +26,8 @@ function createTable(db) {
           answer TEXT NOT NULL,
           num_guesses INTEGER,
           username TEXT,
-          answer_length INTEGER
+          answer_length INTEGER,
+          win INTEGER
         );
       `
   db.exec(q);
