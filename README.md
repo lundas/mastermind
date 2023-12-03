@@ -56,4 +56,11 @@ Contains files related to the backend of the web application
 
 ## Extensions
 - [x] Configurable Difficult Level
+Added a drop down that controls the length of the guess as follow:
+- Easy: 4 digits
+- Medium: 5 digits
+- Hard: 6 digits
+The difficulty drop down also controls the high scores queried from the database; only games with the matching difficulty are shown.
+
 - [x] High Scores
+Clicking the Show High Scores button reveals a table of up to 10 games that resulted in wins, sorted by number of guesses in ascending order. These results are filtered by difficulty rating as determined by the value of the Difficulty Level Select element.
