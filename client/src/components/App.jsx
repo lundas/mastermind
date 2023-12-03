@@ -59,6 +59,11 @@ export default function App() {
         <>
           <form>
             <input name="username" placeholder="username"></input>
+            <select name="difficulty">
+              <option value="4">Easy</option>
+              <option value="5">Medium</option>
+              <option value="6">Hard</option>
+            </select>
             <button type="button" onClick={(e) => {
               e.preventDefault();
 
@@ -68,7 +73,8 @@ export default function App() {
               }
 
               let username = document.querySelector('input').value || 'anon';
-              // console.log('username: ', username);
+              let difficulty = document.querySelector('select[name="difficulty"]').value;
+              console.log('difficulty: ', difficulty);
 
               startGame(username)
                 .then((result) => {setGameId(result.data.gameId)})

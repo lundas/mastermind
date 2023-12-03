@@ -32,7 +32,7 @@ export default function GuessInput({
         lastGuess.locations < 4 &&
         <button type="button" onClick={(e) => {
           e.preventDefault();
-          let selectNodes = document.querySelectorAll('select');
+          let selectNodes = document.querySelectorAll('select[name^="guess"]');
           let guess = '';
           selectNodes.forEach((s) => guess += s.value);
           makeGuess(gameId, guess)
