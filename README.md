@@ -26,11 +26,12 @@ for best results, view in browser window size 750x800 or larger
 2. Use the dropdowns to make a guess and click submit
 3. Use the feedback provided in Guess History to update your guess
 4. You have 10 guesses to figure out the correct combination of numbers
+<img width="375" alt="Screenshot 2023-12-02 at 7 51 18 PM" src="https://github.com/lundas/mastermind/assets/26886397/3429fcb7-ac8a-4a4a-b21b-6c4bdf6afee2">
+<img width="375" alt="Screenshot 2023-12-02 at 7 51 55 PM" src="https://github.com/lundas/mastermind/assets/26886397/b03d957f-50dd-496f-8a1e-27173653d4c7">
+<img width="375" alt="Screenshot 2023-12-02 at 7 52 30 PM" src="https://github.com/lundas/mastermind/assets/26886397/8bbfe07a-5098-430b-ba5b-da421b25ee2b">
+<img width="375" alt="Screenshot 2023-12-02 at 7 52 57 PM" src="https://github.com/lundas/mastermind/assets/26886397/d6b6a9e3-b3f9-4e39-acc2-e86b605ad04a">
 
-<img width="375" alt="Screenshot 2023-12-02 at 1 02 14 PM" src="https://github.com/lundas/mastermind/assets/26886397/33970320-c439-4924-871f-0f13a90cd81f">
-<img width="375" alt="Screenshot 2023-12-02 at 1 02 48 PM" src="https://github.com/lundas/mastermind/assets/26886397/9de89331-8bc9-4ee2-9ea2-2097b9e26a3a">
-<img width="375" alt="Screenshot 2023-12-02 at 1 03 49 PM" src="https://github.com/lundas/mastermind/assets/26886397/645355dd-11bd-41c1-9503-a5a7c2c96a68">
-<img width="375" alt="Screenshot 2023-12-02 at 1 01 51 PM" src="https://github.com/lundas/mastermind/assets/26886397/78124163-88b6-46b4-9f15-1d83bedc173f">
+
 
 ## Code Structure
 Tech Stack:
