@@ -68,11 +68,11 @@ export default function App() {
             <input name="username" placeholder="username"></input>
             <select name="difficulty" onChange={(e) => {
               e.preventDefault();
+              setDifficulty(e.target.value)
               if (showHighScores) {
                 setShowHighScores(false);
                 setHighScores([])
               }
-              setDifficulty(e.target.value)
             }}>
               <option value="4">Easy</option>
               <option value="5">Medium</option>
