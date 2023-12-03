@@ -55,5 +55,5 @@ Contains files related to the backend of the web application
 - **mastermind.db**: the SQLite3 directory
 
 ## Extensions
-- [ ] Configurable Difficult Level
-- [ ] High Scores
+- [x] Configurable Difficult Level
+- [x] High Scores
