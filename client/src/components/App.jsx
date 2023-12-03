@@ -50,6 +50,7 @@ export default function App() {
             makeGuess={makeGuess}
             guessList={guessList}
             setGuessList={setGuessList}
+            difficulty={difficulty}
           />
           <GuessHistoryList
             guessList={guessList}
