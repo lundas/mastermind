@@ -71,4 +71,5 @@ The difficulty drop down also controls the high scores queried from the database
 - [x] High Scores
       
 Clicking the Show High Scores button reveals a table of up to 10 games that resulted in wins, sorted by number of guesses in ascending order. These results are filtered by difficulty rating as determined by the value of the Difficulty Level Select element.
+
 <img width="375" alt="Screenshot 2023-12-02 at 7 45 02 PM" src="https://github.com/lundas/mastermind/assets/26886397/61c01d62-7fca-4bbd-b674-e2c14b97de0b">
